@@ -63,15 +63,5 @@ Agent Built Overall: {total_count[0]['count']}
         print(f"An error occurred: {e}")
 
 
-def schedule_task():
-    # Convert IST to your local timezone
-    ist_timezone = timezone('Asia/Kolkata')
-    now = datetime.now(ist_timezone)
-    schedule.every().day.at("22:30").do(job)  # 00:30 is 12:30 AM in 24-hour format
-
-    while True:
-        schedule.run_pending()
-        time.sleep(1)
-
 if __name__ == "__main__":
-    schedule_task()
+    job()
